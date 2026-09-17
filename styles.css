@@ -509,7 +509,7 @@ textarea {
 
 .read-more:hover::before {
   width: 100%;
-  border-radius: 0;
+  border-radius: 0 40px 40px 0;
 }
 
 .read-more:active {
@@ -1134,10 +1134,6 @@ video.media-full {
   gap: 16px;
 }
 
-.impact-block + .impact-block {
-  margin-top: 40px;
-}
-
 .impact-block__subtitle {
   font-size: 18px;
   font-weight: 600;
@@ -1166,7 +1162,6 @@ video.media-full {
 .impact-panel--phones {
   background: #e4edf4;
   padding: 0;
-  margin-bottom: 160px;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -1278,6 +1273,7 @@ video.media-full {
   padding-inline: var(--gutter);
   text-align: center;
   border-top: 1px solid var(--color-border);
+  margin-top: 160px;
 }
 
 .site-footer p {

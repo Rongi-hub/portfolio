@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="HiSkill VR training simulator navigation redesign case study by Jae-ryeong Myllynen.">
+  <meta name="description" content="HiSkill VR training simulator UX case study by Jae-ryeong Myllynen.">
   <title>HiSkill VR Training — Jae-ryeong Myllynen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,19 +27,10 @@
   </header>
 
   <main id="main" class="project-page">
-    <div class="project-page__lead reveal">
-      <a href="../index.html#work" class="back-link">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Back to work
-      </a>
-    </div>
-
     <div class="project-hero reveal">
       <div class="project-hero__content">
         <h1 class="project-hero__title">Improve User Experience of VR Training Simulator, HiSkill</h1>
-        <p class="project-hero__summary">HiSkill is a professional simulation training tool for Hiab loader crane operators. I helped Hiab to improve UX design by interviewing the users and testing their new design features.</p>
+        <p class="project-hero__summary">HiSkill is a VR-based crane operator training simulator designed to provide safe, scalable, and cost-effective training. It improves the onboarding experience—from login to the full session that helps the trainee learn and master the crane's controls and movements.</p>
         <dl class="project-meta">
           <div>
             <dt>Client</dt>
@@ -47,11 +38,11 @@
           </div>
           <div>
             <dt>Timeline</dt>
-            <dd>2023</dd>
+            <dd>Jul 2022 (3 months)</dd>
           </div>
           <div>
             <dt>My role</dt>
-            <dd>Product Designer</dd>
+            <dd>UX/UI Designer</dd>
           </div>
         </dl>
       </div>
@@ -60,31 +51,94 @@
       </div>
     </div>
 
-    <div class="project-page__inner">
-      <div class="case-study">
-        <div class="case-block reveal">
-          <h2 class="case-block__title">Overview</h2>
-          <p>HiSkill is a VR training tool that equipment operators can use to train with simulated Hiab equipment in a virtual environment. I redesigned the introduction and the main navigation of HiSkill to improve the user experience.</p>
+    <div class="project-content">
+      <section class="case-block reveal">
+        <h2 class="case-block__title">Introduction</h2>
+        <p>HiSkill is a VR-based crane operator training simulator that helps companies to train new workers safely, cost-effectively, and faster than before. By combining virtual reality with actual equipment, it provides a realistic environment where trainees can practice handling challenging situations without real-world risks.</p>
+        <p>My task was making the simulator approachable, defining user flow of the onboarding process, UI design, and branding. The onboarding flow helps the trainee to learn navigation, learn basic movements, and master the crane's controls before they step into the simulator.</p>
+      </section>
+
+      <section class="case-block reveal">
+        <h2 class="case-block__title">My role</h2>
+        <p>As a UX Designer, I was responsible for:</p>
+        <ul class="case-list case-list--disc">
+          <li>Conducting user research &amp; usability testing</li>
+          <li>Designing wireframes and prototypes based on user requirements</li>
+          <li>Creating visual UI elements as required</li>
+          <li>Communicating closely with developers and stakeholders</li>
+        </ul>
+      </section>
+
+      <section class="case-block reveal">
+        <h2 class="case-block__title">Goal</h2>
+        <p>The goal was to make the HiSkill experience consistent, clear, and scalable.</p>
+        <ul class="case-list case-list--disc">
+          <li>The brand's visual identity was inconsistent across platforms.</li>
+          <li>The UI was incredibly difficult and cumbersome, specifically establishing clear design system elements.</li>
+          <li>Important foundational rules and guidelines were missing, resulting in inconsistent quality and documentation.</li>
+        </ul>
+      </section>
+
+      <section class="case-block reveal">
+        <h2 class="case-block__title">Process</h2>
+
+        <div class="process-block">
+          <h3 class="process-block__subtitle">01 — Understand the problem</h3>
+          <p>Before designing for VR, I first wanted to understand the medium from a user's perspective. My previous VR experience was limited to a few games, so I explored a range of VR applications across education, fitness, and gaming, paying particular attention to onboarding, navigation, and interactions.</p>
+          <p>I also reviewed VR UX literature and design guidelines from Google and Oculus.</p>
+          <p>I also conducted UX/UI research and coordinated design outcomes, then tested visual design frequently with the product owner and key stakeholders for improved find-ability. This research helped me understand what would make the experience feel more intuitive and approachable for first-time UI users.</p>
+          <img src="../assets/images/hiskill/process-ui-grid.png" alt="Grid of HiSkill VR interface screens" class="media-full">
         </div>
 
-        <div class="case-block reveal">
-          <h2 class="case-block__title">Challenge</h2>
-          <p>VR training environments present unique UX challenges: users need clear orientation in 3D space, intuitive navigation without traditional UI patterns, and onboarding that prepares them for immersive interaction. The existing introduction and navigation flow needed refinement to reduce friction for first-time users.</p>
+        <div class="process-block">
+          <h3 class="process-block__subtitle">02 — Align on the Challenge</h3>
+          <p>With a better understanding of the market and product, I worked with the cross-functional team including developers and the project manager to align on the key challenges and priorities.</p>
+          <p>Through design workshops, we defined the features identified as high value and possible solutions, and alternative scenarios, and long-term goals. This helped us distinguish between immediate UI improvements and structural decisions that would support the product as it expanded into different markets.</p>
         </div>
 
-        <div class="case-block reveal">
-          <h2 class="case-block__title">Approach</h2>
-          <p>I focused on simplifying the entry experience and restructuring the main navigation so operators could quickly understand available training modules and move between them with confidence. Design decisions accounted for the spatial nature of VR and the need for legible, accessible interaction patterns in a headset environment.</p>
-          <div class="process-gallery">
-            <img src="../assets/images/placeholder.svg" alt="HiSkill VR navigation redesign">
+        <div class="process-block">
+          <h3 class="process-block__subtitle">03 — Explore &amp; Design</h3>
+          <p>The main design challenge was to make VR approachable for users who had limited or previous VR experience, while ensuring a navigation structure flexible enough to support different markets, languages, and content.</p>
+          <p>I explored different approaches to onboarding a user into the project on the page which was part of prototypes. For this set task our priority was on introducing the VR environment and smooth transitions between a generic portal and the training room in a seamless transition.</p>
+          <p>For the main navigation, I explored various layout structures that could accommodate diverse content and user requirements while maintaining a consistent experience. Technical feasibility was considered throughout the design process, with close collaboration with developers.</p>
+          <div class="media-grid media-grid--pair">
+            <img src="../assets/images/hiskill/process-whiteboard.png" alt="Whiteboard sketches of HiSkill user flows">
+            <img src="../assets/images/hiskill/process-wireframes.png" alt="Wireframe explorations for HiSkill navigation">
           </div>
         </div>
 
-        <div class="case-block reveal">
-          <h2 class="case-block__title">Outcome</h2>
-          <p>The redesigned introduction and navigation provided a clearer path into training sessions, helping operators get started faster and navigate the VR environment with less confusion.</p>
+        <div class="process-block">
+          <h3 class="process-block__subtitle">04 — Test &amp; Iterate</h3>
+          <p>Prototypes were presented in the room to gather feedback and identify potential issues before usability testing. Due to time and budget constraints, testing was limited internally with employees who had relevant experience.</p>
+          <p>Participants completed several tasks while wearing the VR headset, allowing me to observe how they navigated the experience in real-time while following a predefined script, followed by a post-usability interview that was first recorded to understand their interactions and information relevance to them.</p>
+          <p>The findings were then brought back into the design process. I restructured the onboarding and navigation based on the common pain points and feedback, effectively refining the experience to make it more representative and easier to navigate.</p>
         </div>
-      </div>
+      </section>
+
+      <section class="case-block reveal">
+        <h2 class="case-block__title">Impact</h2>
+        <p>The redesign intended to provide a more relatable experience for users, addressing key usability challenges in both onboarding and navigation.</p>
+
+        <div class="impact-block">
+          <h3 class="impact-block__subtitle">A more approachable first experience</h3>
+          <p>The redesigned onboarding provided clearer guidance for users who are new to VR, helping them understand the environment and possible interactions before entering the training experience.</p>
+        </div>
+
+        <div class="impact-block">
+          <h3 class="impact-block__subtitle">Clearer and more intuitive navigation</h3>
+          <p>The new menu navigation simplified the overall information architecture and made it easier for users to understand where to go and how to start their training.</p>
+        </div>
+
+        <div class="impact-block">
+          <h3 class="impact-block__subtitle">A more flexible system for different markets</h3>
+          <p>The navigation structure was designed with different languages, content, and market requirements in mind, making it easy to localize the experience without redesigning the entire structure for each market.</p>
+        </div>
+
+        <div class="impact-block">
+          <h3 class="impact-block__subtitle">Validated through user testing</h3>
+          <p>Usability testing showed that 100% of participants felt the new menu improved the overall experience and efficiency. The testing also revealed opportunities for further refinement, which were incorporated into the final design iterations.</p>
+        </div>
+      </section>
     </div>
   </main>
 
