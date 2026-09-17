@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=29">
 </head>
 <body class="page-home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -22,7 +22,6 @@
       <nav class="site-nav" aria-label="Primary">
         <a href="#work" class="site-nav__link">Project</a>
         <a href="#about" class="site-nav__link">About me</a>
-        <a href="#contact" class="site-nav__link">Contact</a>
       </nav>
     </div>
   </header>
@@ -43,14 +42,17 @@
                 <span class="hero__tag-face hero__tag-face--black">Versatile</span>
                 <span class="hero__tag-face hero__tag-face--blue">Fast learner</span>
                 <span class="hero__tag-face hero__tag-face--black">Flexible</span>
+                <span class="hero__tag-face hero__tag-face--blue">Perceptive</span>
+                <span class="hero__tag-face hero__tag-face--black">Pragmatic</span>
               </div>
             </div>
           </div>
         </div>
         <div class="hero__right">
           <div class="hero__photo-wrap">
-            <img src="assets/images/hero-ellipse.svg" alt="" class="hero__ellipse" aria-hidden="true">
-            <img src="assets/images/hero-profile-figma.png" alt="Portrait of Jae-ryeong Myllynen" class="hero__photo">
+            <div class="hero__photo-group">
+              <img src="assets/images/hero-profile.png" alt="Portrait of Jae-ryeong Myllynen" class="hero__photo">
+            </div>
           </div>
           <p class="hero__name">
             <span>Jaeryeong</span>
@@ -80,7 +82,10 @@
         </div>
       </article>
 
-      <article class="project-row project-row--image-right reveal">
+      <article class="project-row project-row--image-left reveal">
+        <div class="project-row__visual project-row__visual--card">
+          <img src="assets/images/project-design-system-figma.png" alt="Design system documentation">
+        </div>
         <div class="project-row__content">
           <p class="project-row__client">Hiab Finland Oy</p>
           <h3 class="project-row__title">Build the Mothership of Design Systems</h3>
@@ -90,9 +95,6 @@
             Read more
           </a>
         </div>
-        <div class="project-row__visual project-row__visual--card">
-          <img src="assets/images/project-design-system-figma.png" alt="Design system documentation">
-        </div>
       </article>
 
       <article class="project-row project-row--image-left reveal">
@@ -100,9 +102,9 @@
           <img src="assets/images/project-hiskill-figma.png" alt="VR training simulator">
         </div>
         <div class="project-row__content">
-          <p class="project-row__client">Hiab Finland Oy</p>
+          <p class="project-row__client">HiSkill Oy</p>
           <h3 class="project-row__title">Improve User Experience of VR Training Simulator, HiSkill</h3>
-          <p class="project-row__desc">HiSkill is a VR training tool that operators can simulate Hiab equipment in a safe and scalable virtual environment. I help Hiab Finland Oy redesign the introduction and the main navigation of the HiSkill.</p>
+          <p class="project-row__desc">I improved the user experience for the VR simulator tool for HiSkill by designing a user interface for both desktop and VR controllers.</p>
           <a href="work/hiskill.html" class="read-more">
             <span class="read-more__icon" aria-hidden="true"></span>
             Read more
@@ -216,6 +218,10 @@
     </section>
   </main>
 
-  <script src="script.js?v=8"></script>
+  <footer class="site-footer">
+    <p>© 2026 Jae-ryeong Myllynen · Product Designer</p>
+  </footer>
+
+  <script src="script.js?v=24"></script>
 </body>
 </html>

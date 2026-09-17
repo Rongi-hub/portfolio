@@ -5,72 +5,135 @@
     var cube = document.querySelector('.hero__tag-cube');
     if (!cube) return;
 
-    var faces = Array.prototype.slice.call(cube.querySelectorAll('.hero__tag-face'));
-    if (!faces.length) return;
+    var inner = cube.querySelector('.hero__tag-cube-inner');
+    var sourceFaces = Array.prototype.slice.call(cube.querySelectorAll('.hero__tag-face'));
+    if (!inner || !sourceFaces.length) return;
+
+    var tags = sourceFaces.map(function (face) {
+      return {
+        text: face.textContent.trim(),
+        tone: face.classList.contains('hero__tag-face--black') ? 'black' : 'blue'
+      };
+    });
 
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var styleEl = document.getElementById('hero-tag-cube-width-keyframes');
+    var holdMs = 1500;
+    var flipMs = parseInt(getComputedStyle(cube).getPropertyValue('--tag-cube-flip-ms'), 10) || 550;
+    var index = 0;
+    var flipping = false;
+    var holdTimer;
+    var flipTimer;
     var resizeTimer;
+    var front;
+    var back;
 
-    if (!styleEl) {
-      styleEl = document.createElement('style');
-      styleEl.id = 'hero-tag-cube-width-keyframes';
-      document.head.appendChild(styleEl);
+    function toneClass(tone) {
+      return tone === 'black' ? 'hero__tag-face--black' : 'hero__tag-face--blue';
     }
 
-    function measureFaceWidth(face) {
-      var clone = face.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      clone.style.cssText =
+    function measureWidth(tag) {
+      var probe = document.createElement('span');
+      probe.className = 'hero__tag-face ' + toneClass(tag.tone);
+      probe.setAttribute('aria-hidden', 'true');
+      probe.style.cssText =
         'position:absolute;left:-9999px;top:0;visibility:hidden;pointer-events:none;' +
         'width:max-content;height:auto;inset:auto;transform:none;display:flex;align-items:center;';
-      cube.appendChild(clone);
-      var width = clone.scrollWidth;
-      cube.removeChild(clone);
+      probe.textContent = tag.text;
+      cube.appendChild(probe);
+      var width = Math.ceil(probe.scrollWidth) + 2;
+      cube.removeChild(probe);
       return width;
     }
 
-    function measureWidths() {
-      return faces.map(function (face) {
-        return Math.ceil(measureFaceWidth(face)) + 2;
-      });
+    function setFace(el, slot, tag) {
+      el.textContent = tag.text;
+      el.className = 'hero__tag-face hero__tag-face--' + slot + ' ' + toneClass(tag.tone);
     }
 
-    function applyWidths() {
-      var widths = measureWidths();
-      var w = function (i) { return widths[i] + 'px'; };
-
-      cube.style.width = w(0);
+    function setCubeWidth(tag, animate) {
+      cube.style.transition = animate ? '' : 'none';
+      cube.style.width = measureWidth(tag) + 'px';
       cube.style.minWidth = '0';
       cube.style.maxWidth = 'none';
+    }
 
-      if (reducedMotion) {
-        styleEl.textContent = '';
-        cube.style.animation = 'none';
-        return;
-      }
+    function buildDrum() {
+      front = document.createElement('span');
+      back = document.createElement('span');
+      inner.textContent = '';
+      inner.appendChild(front);
+      inner.appendChild(back);
+    }
 
-      styleEl.textContent =
-        '@keyframes hero-tag-cube-width {' +
-        '0%, 20.833% { width: ' + w(0) + '; animation-timing-function: ease-in-out; }' +
-        '20.834%, 45.833% { width: ' + w(1) + '; animation-timing-function: ease-in-out; }' +
-        '45.834%, 70.833% { width: ' + w(2) + '; animation-timing-function: ease-in-out; }' +
-        '70.834%, 99.999% { width: ' + w(3) + '; animation-timing-function: ease-in-out; }' +
-        '100% { width: ' + w(0) + '; }' +
-        '}';
+    function applyState() {
+      var nextIndex = (index + 1) % tags.length;
+      setFace(front, 'front', tags[index]);
+      setFace(back, 'back', tags[nextIndex]);
+      setCubeWidth(tags[index], false);
+    }
 
-      cube.style.animation = 'hero-tag-cube-width 12s infinite';
+    function scheduleNext() {
+      clearTimeout(holdTimer);
+      if (reducedMotion || tags.length < 2) return;
+      holdTimer = setTimeout(flip, holdMs);
+    }
+
+    function afterFlip() {
+      if (!flipping) return;
+      clearTimeout(flipTimer);
+      index = (index + 1) % tags.length;
+      inner.classList.remove('is-flipping');
+      inner.style.removeProperty('transition');
+      inner.style.removeProperty('transform');
+      void inner.offsetWidth;
+      applyState();
+      flipping = false;
+      scheduleNext();
+    }
+
+    function flip() {
+      if (flipping || tags.length < 2) return;
+      flipping = true;
+      var nextIndex = (index + 1) % tags.length;
+      setCubeWidth(tags[nextIndex], true);
+      inner.classList.remove('is-flipping');
+      inner.style.removeProperty('transition');
+      inner.style.removeProperty('transform');
+      void inner.offsetWidth;
+      requestAnimationFrame(function () {
+        inner.classList.add('is-flipping');
+      });
+      flipTimer = setTimeout(afterFlip, flipMs + 100);
+    }
+
+    buildDrum();
+    applyState();
+
+    inner.addEventListener('transitionend', function (event) {
+      if (event.target !== inner || event.propertyName !== 'transform' || !flipping) return;
+      afterFlip();
+    });
+
+    if (reducedMotion) return;
+
+    function start() {
+      scheduleNext();
     }
 
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(applyWidths);
+      document.fonts.ready.then(function () {
+        applyState();
+        start();
+      });
     } else {
-      applyWidths();
+      start();
     }
 
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(applyWidths, 150);
+      resizeTimer = setTimeout(function () {
+        setCubeWidth(tags[index], false);
+      }, 150);
     });
   }
 
@@ -120,6 +183,72 @@
 
   /* Hero tag cube — responsive width per face */
   initHeroTagCube();
+
+  initScrollVideos();
+
+  function playScrollVideo(video) {
+    if (!video || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function startPlayback() {
+      if (video.currentTime < 0.05) {
+        video.currentTime = 0.05;
+      }
+      var playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {});
+      }
+    }
+
+    if (video.readyState >= 2) {
+      startPlayback();
+      return;
+    }
+
+    video.addEventListener('loadeddata', startPlayback, { once: true });
+    video.load();
+  }
+
+  function initScrollVideos() {
+    var videos = document.querySelectorAll('video[data-play-on-visible]');
+    if (!videos.length) return;
+
+    videos.forEach(function (video) {
+      video.pause();
+      video.addEventListener('play', function () {
+        if (video.currentTime < 0.05) {
+          video.currentTime = 0.05;
+        }
+      });
+    });
+
+    if (!('IntersectionObserver' in window)) {
+      videos.forEach(playScrollVideo);
+      return;
+    }
+
+    var videoObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          var video = entry.target;
+          if (entry.isIntersecting) {
+            playScrollVideo(video);
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    videos.forEach(function (video) {
+      videoObserver.observe(video);
+
+      var rect = video.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+        playScrollVideo(video);
+      }
+    });
+  }
 
   /* Contact form (Formspree) */
   var form = document.getElementById('contact-form');

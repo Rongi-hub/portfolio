@@ -22,7 +22,6 @@
       <nav class="site-nav" aria-label="Primary">
         <a href="../index.html#work" class="site-nav__link">Project</a>
         <a href="../index.html#about" class="site-nav__link">About me</a>
-        <a href="../index.html#contact" class="site-nav__link">Contact</a>
       </nav>
     </div>
   </header>
@@ -31,7 +30,7 @@
     <div class="project-hero reveal">
       <div class="project-hero__content">
         <h1 class="project-hero__title">From Concept Design to Launch: MyHiab Mobile App</h1>
-        <p class="project-hero__summary">Hiab is a leading provider of load-handling equipment, combining digital solutions with hydraulic lifting systems. MyHiab mobile app is to support operators from daily work to equipment downtime.</p>
+        <p class="project-hero__summary">Hiab is a leading provider of load-handling equipment, combining digital solutions with hydraulic lifting systems. MyHiab mobile app is designed to support operators from daily work to equipment downtime.</p>
         <dl class="project-meta">
           <div>
             <dt>Client</dt>
@@ -168,19 +167,11 @@
           <h3 class="process-block__subtitle">User testing and reflecting the results into the design</h3>
           <p>Several profound UX decisions were refined through user testing by incorporating feedback from test participants. One example was simplifying the login and equipment registration process through A/B testing to make the experience easier and more intuitive.</p>
 
-          <div class="ab-test">
-            <div class="ab-test__variant">
-              <img src="../assets/images/myhiab/ab-test-a.png" alt="Type A — fewer tasks per screen">
-              <p class="ab-test__label">Less tasks per screen<br>+<br>More screens</p>
-            </div>
-            <div class="ab-test__vs" aria-hidden="true">A / B</div>
-            <div class="ab-test__variant">
-              <img src="../assets/images/myhiab/ab-test-b.png" alt="Type B — more tasks per screen">
-              <p class="ab-test__label">More tasks per screen<br>+<br>Less screens</p>
-            </div>
+          <div class="ab-test ab-test--figma">
+            <img src="../assets/images/myhiab/ab-test-composite.png" alt="A/B test comparing fewer tasks per screen versus more tasks per screen">
           </div>
 
-          <p class="process-block__subtitle process-block__subtitle--inline">The user test was designed to explore two aspects of the user experience.</p>
+          <h3 class="process-block__subtitle process-block__subtitle--inline">The user test was designed to explore two aspects of the user experience.</h3>
           <p>The primary goal was to understand which approach to user engagement users preferred. However, the test also revealed which approach worked better when users needed to complete multiple tasks to reach a specific goal.</p>
           <p>We compared two approaches:</p>
           <ul class="case-list case-list--disc">
@@ -226,12 +217,16 @@
           <p>Because error code structures vary depending on equipment type, a filtering system was introduced that allows users to first select their machine category before searching. Additional support features — such as prefix-based filtering and visual input guidance — help users enter valid error codes more accurately while reducing search errors and frustration.</p>
           <p>The overall experience was designed to minimise downtime and allow operators to quickly identify issues even while actively working in the field.</p>
           <div class="impact-panel impact-panel--phones">
-            <img src="../assets/images/myhiab/error-codes.png" alt="Error code search screens" class="error-codes-strip">
+            <img src="../assets/images/myhiab/error-codes.png?v=2" alt="Error code search screens" class="error-codes-strip">
           </div>
         </div>
       </section>
     </div>
   </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Jae-ryeong Myllynen · Product Designer</p>
+  </footer>
 
   <script src="../script.js"></script>
 </body>
