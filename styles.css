@@ -870,11 +870,18 @@ textarea {
 /* Content column */
 .project-content {
   max-width: 800px;
-  margin-inline: auto;
+  margin: 0 0 0 280px;
   padding: 0;
   display: flex;
   flex-direction: column;
   gap: 64px;
+}
+
+@media (max-width: 959px) {
+  .project-content {
+    margin-inline: auto;
+    padding-inline: clamp(1.5rem, 5vw, var(--page-padding));
+  }
 }
 
 .case-block {
@@ -990,10 +997,6 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-.process-block + .process-block {
-  margin-top: 40px;
 }
 
 .process-block__subtitle {
