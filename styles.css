@@ -1082,14 +1082,24 @@ video.media-full {
   margin-top: 16px;
 }
 
+.media-full--mb-40 {
+  margin-bottom: 40px;
+}
+
 .media-rounded {
   margin-top: 24px;
   border-radius: 40px;
 }
 
 .media-centered {
-  margin: 24px auto 0;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 614px;
+}
+
+.media-centered.media-full--mb-40 {
+  margin-bottom: 40px;
 }
 
 /* A/B test comparison */
