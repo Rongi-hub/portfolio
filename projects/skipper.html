@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skipper — Jaeryeong Myllynen</title>
+  <meta name="description" content="Skipper: building a mothership of design systems that Hiab's teams could branch from and customise.">
+
+  <link rel="icon" href="../favicon.ico" sizes="48x48">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-header__logo" href="../index.html" aria-label="Jae — home">
+      <img src="../assets/images/logo.svg" width="67.3174" height="32" alt="Jae">
+    </a>
+    <p class="site-header__tagline">Product Designer</p>
+    <nav class="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="../index.html#work">Work</a></li>
+        <li><a class="site-nav__link" href="../index.html#about">About</a></li>
+        <li><a class="site-nav__link" href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="site-main project">
+    <header class="project-header">
+      <h1 class="project-header__title">Skipper</h1>
+      <p class="project-header__subtitle">Build a Mothership of Design Systems</p>
+      <div class="prose project-header__intro">
+        <p>Hiab was in need of a mothership of design systems, keeping a truth of design sources due to multiple design systems accumulated over time. I help create and maintain a centralised design system with a scalable foundation that different teams could branch from, customise, and maintain consistently across various products.</p>
+      </div>
+      <dl class="project-meta">
+        <div>
+          <dt>Client</dt>
+          <dd>Hiab Finland Oy</dd>
+        </div>
+        <div>
+          <dt>Timeline</dt>
+          <dd><span>Jul 2023</span><span aria-hidden="true">|</span><span><span class="visually-hidden">to </span>Dec 2024</span></dd>
+        </div>
+        <div>
+          <dt>My role</dt>
+          <dd>UXUI Design</dd>
+        </div>
+      </dl>
+    </header>
+
+    <figure class="project-hero">
+      <img src="../assets/images/projects/skipper/hero.jpg" width="1600" height="1096" alt="Skipper design system components: buttons, snackbar, cards, list items, inputs and progress indicators">
+    </figure>
+
+    <section class="project-section prose" aria-labelledby="intro">
+      <h2 id="intro" class="project-section__title">Introduction</h2>
+      <p>Hiab Finland Oy is a global leader in loader equipment and has developed a range of digital services throughout its long history. As they have diverse projects, individual design systems were created and maintained separately for each product.</p>
+      <p>This project was an initiative to change that approach. Rather than continuing to use isolated systems with untraceable visual materials, the goal was to establish a shared foundation that could be used across diverse teams and projects.</p>
+      <p>The new design system included editorial guidelines, visual guidelines, accessibility standards, color tokens, and reusable components. At the same time, it was designed to provide a solid branching foundation allowing individual projects to branch the core system and customize it according to their specific needs.</p>
+    </section>
+
+    <section class="project-section prose" aria-labelledby="role">
+      <h2 id="role" class="project-section__title">My role</h2>
+      <p>As a UX Designer, I was responsible for:</p>
+      <ul class="bullets">
+        <li>Establishing the foundation of the design system and test for adopting to existing projects.</li>
+        <li>Expanding and maintaining the system.</li>
+        <li>Collaborating with the designers and developers in Swedish team.</li>
+      </ul>
+    </section>
+
+    <section class="project-section prose" aria-labelledby="problem">
+      <h2 id="problem" class="project-section__title">Problem</h2>
+      <p>Multiple design systems were being developed and used independently across different teams, which created several challenges:</p>
+      <ul class="bullets bullets--strong">
+        <li>Visual identity was inconsistent across products.</li>
+        <li>Teams were spending time and resources repeatedly rebuilding similar design system elements.</li>
+        <li>Important foundational rules and guidelines were missing, resulting in inconsistent quality and decision-making.</li>
+      </ul>
+      <figure class="figure" style="margin-top: 80px">
+        <img src="../assets/images/projects/skipper/team.jpg" width="1600" height="892" alt="A designer presenting next to a whiteboard" loading="lazy" decoding="async">
+      </figure>
+    </section>
+
+    <section class="project-section prose" aria-labelledby="process">
+      <h2 id="process" class="project-section__title">Process</h2>
+      <ol class="numbered">
+        <li>
+          <h3 class="numbered__title">Build what other teams actually needed</h3>
+          <p>The key challenge was to make the new design system genuinely more useful than the systems teams were already using, so that designers would see a clear reason to adopt it. I began by analysing the existing design systems used by different designers and speaking directly with them to understand their needs, frustrations, and workflows. Based on these insights, I focused on several areas that could provide immediate value while also creating a stronger foundation for future development.</p>
+        </li>
+        <li>
+          <h3 class="numbered__title">New color token system</h3>
+          <p>I introduced a color token system using Figma Variables, which was a relatively new feature at the time and had not been used in the existing design systems. This provided two key benefits:</p>
+          <ul class="bullets">
+            <li>Multiple color modes could be defined and easily applied in prototypes, making it easier to test, manage, and maintain different visual themes.</li>
+            <li>The token-based color system created a clearer connection between the design and development environments. This made it easier to translate the design color system into code and improved communication between designers and developers.</li>
+          </ul>
+          <figure class="figure">
+            <img src="../assets/images/projects/skipper/color-tokens.jpg" width="1600" height="1250" alt="Communication and surface colour scales with WCAG AA and AAA contrast checks" loading="lazy" decoding="async">
+            <img src="../assets/images/projects/skipper/figma-variables.jpg" width="1600" height="732" alt="Colour palette next to the colour token variables in Figma with light and dark modes" loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li>
+          <h3 class="numbered__title">Flexible Components Through Component Properties</h3>
+          <p>Designers working across different projects had different requirements for their components. Instead of creating separate versions for every use case, I used component properties to make the components flexible while keeping their core structure simple.</p>
+          <p>This allowed a single component to adapt to different contexts and requirements without unnecessarily increasing the complexity of the design system.</p>
+          <figure class="figure">
+            <img src="../assets/images/projects/skipper/component-properties.jpg" width="1600" height="1240" alt="Dialog prompt component with its property panel: type, title, list, icon, buttons and swappable content" loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li>
+          <h3 class="numbered__title">Creating a Shared Foundation for Future Collaboration</h3>
+          <p>By this point, many projects had already been in development for several years, so completely unifying every existing design into one system was neither realistic nor necessary.</p>
+          <p>Instead, the goal was to establish a shared foundation: a set of essential guidelines, principles, and reusable elements that teams could gradually adopt.</p>
+          <p>To support this approach, I introduced branching and editorial guidelines, allowing individual projects to build on the shared foundation while maintaining the flexibility to adapt the system to their own needs.</p>
+          <p>The focus was not on forcing an immediate transformation, but on creating a system that could grow organically, support collaboration, and provide a common language for designers and developers across teams.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="project-section prose" aria-labelledby="impact">
+      <h2 id="impact" class="project-section__title">Impact</h2>
+      <ol class="numbered">
+        <li>
+          <h3 class="numbered__title">Expanded adoption across projects</h3>
+          <p>The Mothership design system was adopted by more than three projects. I also began collaborating with the Swedish team to further develop the system and expand its application across additional products.</p>
+        </li>
+        <li>
+          <h3 class="numbered__title">Improved design–development consistency</h3>
+          <p>The design color system was converted into a format that could be directly used in development. This enabled better integration between design and code, making color tokens more consistent and communication between designers and developers more precise and efficient.</p>
+          <figure class="figure" style="margin-top: 24px">
+            <img src="../assets/images/projects/skipper/collaboration.jpg" width="1600" height="1066" alt="A designer and a developer reviewing code and wireframes at a desk" loading="lazy" decoding="async">
+          </figure>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__info">
+        <img src="../assets/images/logo-footer.svg" width="67.3174" height="32" alt="Jae">
+        <ul class="site-footer__details">
+          <li>Product Designer</li>
+          <li>Based in Helsinki, Finland</li>
+          <li><a href="mailto:cjryeong@gmail.com">cjryeong@gmail.com</a></li>
+        </ul>
+      </div>
+      <nav class="site-footer__work" aria-label="Work">
+        <h2 class="site-footer__heading">Work</h2>
+        <ul class="site-footer__links">
+          <li><a class="site-footer__link" href="myhiab.html">MyHiab</a></li>
+          <li><a class="site-footer__link" href="nomumoro.html">Nomumoro</a></li>
+          <li><a class="site-footer__link" href="skipper.html" aria-current="page">Skipper</a></li>
+          <li><a class="site-footer__link" href="hiskill.html">HiSkill</a></li>
+          <li><a class="site-footer__link" href="physte.html">Physte</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

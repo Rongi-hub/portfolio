@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyHiab — Jaeryeong Myllynen</title>
+  <meta name="description" content="MyHiab: designing a mobile app for load-handling equipment operators, from concept design to launch.">
+
+  <link rel="icon" href="../favicon.ico" sizes="48x48">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-header__logo" href="../index.html" aria-label="Jae — home">
+      <img src="../assets/images/logo.svg" width="67.3174" height="32" alt="Jae">
+    </a>
+    <p class="site-header__tagline">Product Designer</p>
+    <nav class="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="../index.html#work">Work</a></li>
+        <li><a class="site-nav__link" href="../index.html#about">About</a></li>
+        <li><a class="site-nav__link" href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="site-main project">
+    <header class="project-header">
+      <h1 class="project-header__title">MyHiab</h1>
+      <p class="project-header__subtitle">From Concept Design to Launch</p>
+      <div class="prose project-header__intro">
+        <p>Hiab is a leading provider of load-handling equipment, combining digital solutions with hydraulic lifting systems. MyHiab mobile app is to support operators from daily work to equipment downtime. The product includes features ranging from searching service locator &amp; error-code to daily checklists.</p>
+      </div>
+      <dl class="project-meta">
+        <div>
+          <dt>Client</dt>
+          <dd>Hiab Finland Oy</dd>
+        </div>
+        <div>
+          <dt>Timeline</dt>
+          <dd><span>Jul 2023</span><span aria-hidden="true">|</span><span><span class="visually-hidden">to </span>Dec 2024</span></dd>
+        </div>
+        <div>
+          <dt>My role</dt>
+          <dd><span>UXUI Design</span><span>Concept Design</span></dd>
+        </div>
+      </dl>
+    </header>
+
+    <figure class="project-hero">
+      <img src="../assets/images/projects/myhiab/hero.jpg" width="1600" height="1056" alt="Two phones showing the MyHiab app: a registration prompt and the home screen">
+    </figure>
+
+    <section class="project-section prose" aria-labelledby="role">
+      <h2 id="role" class="project-section__title">My role</h2>
+      <p>As a UX designer on this project, I played a key role in shaping the service concept and overall user experience. During nearly two years on the project, I continuously improved user experiences across the app’s features, balancing user needs with business priorities.</p>
+      <ul class="bullets bullets--strong">
+        <li>Map out new features</li>
+        <li>Build and maintain a design system</li>
+        <li>Conduct user research, wire framing, prototyping, and user testing</li>
+        <li>Synthesise user insight into design</li>
+      </ul>
+    </section>
+
+    <section class="project-section prose" aria-labelledby="problem">
+      <h2 id="problem" class="project-section__title">Problem</h2>
+      <p>Here are key problems defined from users.</p>
+      <ol class="numbered">
+        <li class="problem-card">
+          <div>
+            <h3 class="numbered__title">Users don't understand cryptic error codes.</h3>
+            <p>When equipment has problems, it shows error codes that’s not self-explanatory. Error codes can be found from equipment instruction manuals provided at the time of purchase. However, operators rarely have access to those manuals while working in the field.</p>
+            <p class="problem-card__example">Example</p>
+            <p>A construction worker started to operate hydraulic lift, but the machine doesn’t move but showing a cryptic code on the screen. He doesn’t know what to do and has to call the machine owner.</p>
+          </div>
+          <figure class="problem-card__media">
+            <img src="../assets/images/projects/myhiab/problem-error-code.jpg" width="436" height="512" alt="Crane control display showing an error code" loading="lazy" decoding="async">
+            <figcaption class="caption">The image above was produced by AI due to confidentiality reasons.</figcaption>
+          </figure>
+        </li>
+        <li class="problem-card">
+          <div>
+            <h3 class="numbered__title">Operators are commonly exposed to situational disability.</h3>
+            <p>Operators are commonly exposed to situational disability, which means a temporary impairment in a person’s movements, hearing, seeing, or saying due to environmental or contextual situation.</p>
+            <p class="problem-card__example">Example</p>
+            <p>Danny is an operator of a loader crane. He tries to read a text from the equipment’s screen in heavy rain or sometimes direct sunlight. But his vision is impaired temporarily and can’t read texts from the screen well.</p>
+          </div>
+          <figure class="problem-card__media">
+            <img src="../assets/images/projects/myhiab/problem-weather.jpg" width="436" height="512" alt="Equipment screen covered in rain drops" loading="lazy" decoding="async">
+            <figcaption class="caption">The image above was produced by AI due to confidentiality reasons.</figcaption>
+          </figure>
+        </li>
+        <li class="problem-card">
+          <div>
+            <h3 class="numbered__title">Multi-device authentication requirements make the login experience complex and burdensome.</h3>
+            <p>The login experience becomes too complicated and tedious as users are required to authenticate multiple equipment and fill in extensive personal information.</p>
+            <p class="problem-card__example">Example</p>
+            <p>Tom found an interesting feature for users with registered equipment in the Hiab mobile app. However when he tried to register his equipment, he doesn’t know where to find the required information and gives up on the process.</p>
+          </div>
+          <figure class="problem-card__media">
+            <img src="../assets/images/projects/myhiab/problem-login.jpg" width="436" height="512" alt="Phone showing a long account creation form" loading="lazy" decoding="async">
+            <figcaption class="caption">The image above was produced by AI due to confidentiality reasons.</figcaption>
+          </figure>
+        </li>
+      </ol>
+    </section>
+
+    <section class="project-section prose" aria-labelledby="goals">
+      <h2 id="goals" class="project-section__title">Goals</h2>
+      <ol class="numbered">
+        <li>
+          <h3 class="numbered__title">Error codes can be found quickly from their mobile phone and guide operators to the next steps.</h3>
+          <p>Through conducted user interviews, the most noticed need from users was a practical guide when their equipment shows error codes considering operators’ working environment and situations.</p>
+        </li>
+        <li>
+          <h3 class="numbered__title">User experience should be accessible, intuitive and concise.</h3>
+          <p>As targeted users are bound to have situational impairments, the service should be widely accessible. Also, build required steps as simple as possible to increase user engagement.</p>
+        </li>
+        <li>
+          <h3 class="numbered__title">Build a platform where Hiab can directly connect with its end users — machine operators.</h3>
+          <p>Hiab aimed to provide users with the information and tools that users need while also expanding the platform into a communication channel between Hiab and machine operators. For this reason, in addition to the highly requested error code search feature, several other functions were introduced, including service point search, video instructions, daily/monthly/yearly checklists, and annual service reminders.</p>
+        </li>
+        <li>
+          <h3 class="numbered__title">Create dark &amp; light modes that meet AA level of Web Contents Accessibility Guides 2.2.</h3>
+          <p>Operators primarily work outdoors and often face situational disability due to weather conditions or environmental factors. To help them complete their work more safely and efficiently, providing accessible services became one of Hiab’s key goals.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="project-section prose" aria-labelledby="process">
+      <h2 id="process" class="project-section__title">Process</h2>
+
+      <div class="subsection">
+        <h3 class="subsection__title">User flows and prototyping</h3>
+        <p>Users’ journey from various user status was mapped in detail. During this process, hidden flows were discovered and became the foundation for the prototypes.</p>
+        <figure class="figure figure--pair">
+          <img src="../assets/images/projects/myhiab/user-flow.jpg" width="784" height="676" alt="User flow diagram mapping the app's screens" loading="lazy" decoding="async">
+          <img src="../assets/images/projects/myhiab/workshop.jpg" width="784" height="674" alt="Sticky notes from a user journey mapping session" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection__title">Color palette and Visual hierarchy</h3>
+        <p>Careful color consideration was required in defining the color system due to the existing accent colors overlapping with the shared UI colours. Through extensive discussions and prototyping, we decided to avoid repetitive accent color usage and established UI colors that aligned more closely with the service’s purpose.</p>
+        <p>In accordance with WCAG 2.2 guidelines, color alone was never used to communicate meaning; instead, it was combined with shapes and additional visual elements. All color usage principles, including these accessibility considerations, were documented in the design system.</p>
+        <figure class="figure">
+          <img src="../assets/images/projects/myhiab/color-palette.jpg" width="1600" height="858" alt="Six colour palette explorations applied to the app's screens in dark and light mode" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection__title">User testing and reflecting the results into the design</h3>
+        <p>Several profound UX decisions were refined through user testing by incorporating feedback from test participants. One example was simplifying the login and equipment registration process through A/B testing to make the experience easier and more intuitive.</p>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection__title">The user test was designed to explore two aspects of the user experience.</h3>
+        <p>The primary goal was to understand which approach to user engagement users preferred. However, the test also revealed which approach worked better when users needed to complete multiple tasks to reach a specific goal.</p>
+        <p>We compared two approaches:</p>
+        <ul class="bullets bullets--spaced">
+          <li>Type A: Fewer tasks per screen, making each screen easier to understand at first glance. However, users need to navigate through more screens to complete their goal.</li>
+          <li>Type B: More tasks per screen, making the initial view more complex. However, users can complete their goal by going through fewer screens.</li>
+        </ul>
+        <figure class="figure">
+          <img src="../assets/images/projects/myhiab/test-type-a.jpg" width="1600" height="1130" alt="Type A: less tasks per screen, but more screens. Four registration screens." loading="lazy" decoding="async">
+          <img src="../assets/images/projects/myhiab/test-type-b.jpg" width="1600" height="1130" alt="Type B: more tasks per screen, but less screens. Four registration screens." loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection__title">No clear winner. But a clearer direction.</h3>
+        <p>The test did not produce a clear winner. Instead, 50% of participants preferred Type A, while the other 50% preferred Type B. Although there was no obvious preference that allowed us to simply choose one approach, the results gave me valuable insights into how users think about the process and what could be improved.</p>
+        <p>The participants’ comments helped me identify opportunities to improve the overall engagement flow. Based on these findings, I iterated on the design by combining strengths from both approaches: keeping individual screens relatively easy to understand while reducing unnecessary steps in the overall process.</p>
+        <div class="figure">
+          <div class="media-row">
+            <video class="media-row__media media-row__media--phone" src="../assets/videos/myhiab-test-1.mp4" width="804" height="1686" muted loop playsinline controls preload="none" data-inview-autoplay aria-label="Screen recording of the redesigned registration flow"></video>
+            <ul class="bullets">
+              <li>Two separated tasks given</li>
+              <li>Overview screen for registration</li>
+              <li>Equipment registration first</li>
+            </ul>
+          </div>
+          <div class="media-row media-row--reverse">
+            <video class="media-row__media media-row__media--phone" src="../assets/videos/myhiab-test-2.mp4" width="804" height="1686" muted loop playsinline controls preload="none" data-inview-autoplay aria-label="Screen recording of company search autofilling the registration details"></video>
+            <ul class="bullets">
+              <li>Company search helps autofill required informations.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section prose" aria-labelledby="impact">
+      <h2 id="impact" class="project-section__title">Impact &amp; result</h2>
+
+      <div class="subsection subsection--highlight">
+        <h3 class="subsection__title">The app was successfully launched, and the design system was widely shared.</h3>
+        <p>The application was released on both the Google Play Store and Apple App Store, quickly surpassing 1,000 downloads, with approximately 10% of users completing sign-up.</p>
+        <figure class="figure">
+          <img src="../assets/images/projects/myhiab/launch.jpg" width="1600" height="1104" alt="Store screenshots: register your equipment, search error codes, find service locations" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="subsection subsection--highlight">
+        <h3 class="subsection__title">The product was developed with two accessibility-friendly modes capable of meeting WCAG 2.2 AA standards.</h3>
+        <p>Creating light and dark mode enhanced accessibility for operators working outdoors especially. The implementation of dual modes was achieved by token-based design system, which streamlined the design-to-development handoff process, making collaboration faster and more efficient.</p>
+        <figure class="figure">
+          <img src="../assets/images/projects/myhiab/light-dark-tokens.jpg" width="1600" height="666" alt="Light and dark mode screens next to the colour token variables in Figma" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection__title">Fast &amp; easy error code search</h3>
+        <p>One of the platform’s most important features was the error code search experience, designed to provide fast and reliable support directly from a user’s pocket.</p>
+        <p>Because error code structures vary depending on equipment type, a filtering system was introduced that allows users to first select their machine category before searching. Additional support features — such as prefix-based filtering and visual input guidance — help users enter valid error codes more accurately while reducing search errors and frustration.</p>
+        <p>The overall experience was designed to minimise downtime and allow operators to quickly identify issues even while actively working in the field.</p>
+        <figure class="figure">
+          <img src="../assets/images/projects/myhiab/error-code-search.jpg" width="1600" height="740" alt="Four screens of the error code search flow" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__info">
+        <img src="../assets/images/logo-footer.svg" width="67.3174" height="32" alt="Jae">
+        <ul class="site-footer__details">
+          <li>Product Designer</li>
+          <li>Based in Helsinki, Finland</li>
+          <li><a href="mailto:cjryeong@gmail.com">cjryeong@gmail.com</a></li>
+        </ul>
+      </div>
+      <nav class="site-footer__work" aria-label="Work">
+        <h2 class="site-footer__heading">Work</h2>
+        <ul class="site-footer__links">
+          <li><a class="site-footer__link" href="myhiab.html" aria-current="page">MyHiab</a></li>
+          <li><a class="site-footer__link" href="nomumoro.html">Nomumoro</a></li>
+          <li><a class="site-footer__link" href="skipper.html">Skipper</a></li>
+          <li><a class="site-footer__link" href="hiskill.html">HiSkill</a></li>
+          <li><a class="site-footer__link" href="physte.html">Physte</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
