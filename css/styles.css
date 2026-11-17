@@ -258,7 +258,7 @@ a:focus-visible {
 
 .hero__title {
   font-size: 72px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 88px;
   color: var(--color-text);
 }
