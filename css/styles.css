@@ -11,6 +11,9 @@
   --color-on-dark-muted: #d1d1d1;
   --color-black: #000000;
   --color-media-bg: #e5ecf1;
+  --color-surface: #f2f2f2;
+  --color-night: #0f1010;
+  --color-night-2: #0e0e0f;
 
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
@@ -170,9 +173,9 @@ a:focus-visible {
 
 .tags li {
   padding-left: 8px;
-  border-left: 1px solid var(--color-black);
+  border-left: 2px solid var(--color-text);
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 23px;
   color: var(--color-text);
 }
@@ -181,7 +184,7 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 16px;
+  padding: 13px 16px;
   border-radius: 2px;
   background: var(--color-black);
   color: #ffffff;
@@ -206,14 +209,52 @@ a:focus-visible {
 }
 
 /* ==========================================================================
-   Hero
+   Landing page
+   Side padding: the normal gutter (64px on desktop) up to 1440px wide,
+   160px above 1440px, and 480px above 2560px.
    ========================================================================== */
+.hero,
+.work,
+.about,
+.principles-band,
+.resume,
+.contact,
+.site-footer--landing {
+  --landing-pad: var(--gutter);
+}
+
+@media (min-width: 1441px) {
+  .hero,
+  .work,
+  .about,
+  .principles-band,
+  .resume,
+  .contact,
+  .site-footer--landing {
+    --landing-pad: 160px;
+  }
+}
+
+@media (min-width: 2561px) {
+  .hero,
+  .work,
+  .about,
+  .principles-band,
+  .resume,
+  .contact,
+  .site-footer--landing {
+    --landing-pad: 480px;
+  }
+}
+
+/* Hero ------------------------------------------------------------------- */
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 671px) minmax(0, 1fr);
-  gap: 32px;
-  /* 170px at 1440px+ wide; eases down to the normal gutter on narrower screens */
-  padding: 0 clamp(var(--gutter), calc((100% - 1100px) / 2), 64px);
+  grid-template-columns: minmax(0, 650px) minmax(0, 1fr);
+  /* 32px at 1440px wide, growing to 64px at 1920px */
+  column-gap: clamp(32px, calc(100vw / 15 - 64px), 64px);
+  padding: 0 var(--landing-pad);
+  background: var(--color-surface);
 }
 
 .hero__media {
@@ -268,36 +309,31 @@ a:focus-visible {
 }
 
 .hero__lead {
-  max-width: 560px;
+  max-width: 500px;
   margin-top: 32px;
   font-size: 23px;
   font-weight: 300;
-  line-height: 36px;
+  line-height: 32px;
   color: var(--color-text);
 }
 
-/* ==========================================================================
-   Work
-   ========================================================================== */
+/* Work ------------------------------------------------------------------- */
 .work {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 80px var(--content-pad);
+  padding: 80px var(--landing-pad) 160px;
   scroll-margin-top: 16px;
 }
 
 .work-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, var(--media-width, 540px));
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas: "body media";
   align-items: center;
-  gap: 40px;
-  padding: 32px 0;
+  column-gap: 32px;
 }
 
 .work-card--media-left {
-  grid-template-columns: minmax(0, var(--media-width, 540px)) minmax(0, 1fr);
   grid-template-areas: "media body";
 }
 
@@ -308,6 +344,12 @@ a:focus-visible {
 .work-card__media {
   grid-area: media;
   width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+.work-card--tall .work-card__media {
+  height: 530px;
 }
 
 .work-card__title {
@@ -318,9 +360,9 @@ a:focus-visible {
 }
 
 .work-card__subtitle {
-  font-size: 32px;
+  font-size: 23px;
   font-weight: 300;
-  line-height: 40px;
+  line-height: 32px;
   color: var(--color-text);
 }
 
@@ -332,69 +374,72 @@ a:focus-visible {
   margin-top: 32px;
 }
 
-/* ==========================================================================
-   Dark band (About, Resume, Contact)
-   ========================================================================== */
-.dark {
-  background: var(--color-dark);
-  color: var(--color-on-dark);
-}
-
 /* About ------------------------------------------------------------------ */
 .about {
-  display: grid;
-  grid-template-columns: minmax(0, 382px) minmax(0, 1fr);
-  gap: 64px;
-  padding: 80px var(--content-pad);
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 518px;
+  /* Leave room for the portrait, which bleeds off the right edge */
+  padding: 120px calc(542px + 24px) 120px var(--landing-pad);
+  overflow: hidden;
+  background: var(--color-surface);
+  scroll-margin-top: 16px;
 }
 
-.about__name {
-  font-size: 45px;
+.about__text {
+  position: relative;
+  z-index: 1;
+}
+
+.about__title {
+  font-size: 72px;
   font-weight: 500;
-  line-height: 56px;
-}
-
-.about__portrait {
-  width: 100%;
-  margin-top: 40px;
+  line-height: 88px;
+  color: var(--color-text);
 }
 
 .about__lead {
+  margin-top: 32px;
   font-size: 23px;
   font-weight: 300;
-  line-height: 36px;
-  color: var(--color-on-dark-muted);
+  line-height: 32px;
+  color: var(--color-text);
+}
+
+.about__portrait {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 542px;
+}
+
+/* Principles ------------------------------------------------------------- */
+.principles-band {
+  padding: 64px var(--landing-pad) 32px;
+  background: var(--color-night);
+  color: var(--color-on-dark);
 }
 
 .principles {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 
-.principle__number {
-  display: inline-block;
-  min-width: 17px;
-  padding: 0 3px;
-  border-radius: 2px;
-  background: var(--color-on-dark);
-  color: var(--color-dark);
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 15px;
-  text-align: center;
+.principle {
+  padding: 20px 16px 20px 20px;
+  border-left: 4px solid var(--color-on-dark);
 }
 
 .principle__title {
-  margin-top: 8px;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 26px;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 36px;
 }
 
 .principle__text {
-  margin-top: 12px;
+  margin-top: 6px;
   font-size: var(--text-paragraph-size);
   font-weight: 300;
   line-height: var(--text-paragraph-line);
@@ -404,9 +449,11 @@ a:focus-visible {
 /* Resume ----------------------------------------------------------------- */
 .resume {
   display: grid;
-  grid-template-columns: minmax(0, 384px) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 64px;
-  padding: 40px var(--content-pad) 80px;
+  padding: 80px var(--landing-pad);
+  background: var(--color-night-2);
+  color: var(--color-on-dark);
 }
 
 .resume__column {
@@ -422,8 +469,6 @@ a:focus-visible {
 }
 
 .resume__heading {
-  padding-left: 8px;
-  border-left: 4px solid var(--color-on-dark);
   font-size: 32px;
   font-weight: 500;
   line-height: 40px;
@@ -436,9 +481,10 @@ a:focus-visible {
 }
 
 .entry__title {
+  margin-top: 4px;
   font-size: 23px;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 36px;
 }
 
 .entry__text,
@@ -457,38 +503,36 @@ a:focus-visible {
 
 /* Contact ---------------------------------------------------------------- */
 .contact {
-  padding: 80px var(--content-pad) 160px;
-}
-
-.contact__inner {
   display: grid;
   grid-template-columns: minmax(0, 640px) minmax(0, 1fr);
   gap: 64px;
-  padding-top: 80px;
-  border-top: 1px solid var(--color-on-dark-muted);
+  padding: 112px var(--landing-pad) 80px;
 }
 
 .contact__title {
   font-size: 45px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 56px;
+  color: var(--color-text);
 }
 
 .contact__links {
   display: flex;
   flex-direction: column;
-  gap: 42px;
-  padding-top: 18px;
+  gap: 32px;
+  padding-top: 16px;
 }
 
 .contact__link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 4px;
+  padding: 4px 0 6px;
+  border-bottom: 1px solid var(--color-black);
   font-size: 23px;
   font-weight: 500;
   line-height: 28px;
-  transition: opacity 0.2s ease;
+  color: var(--color-text);
 }
 
 .contact__link svg {
@@ -496,12 +540,8 @@ a:focus-visible {
   transition: transform 0.2s ease;
 }
 
-.contact__link:hover {
-  opacity: 0.75;
-}
-
 .contact__link:hover svg {
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
 /* ==========================================================================
@@ -520,14 +560,8 @@ a:focus-visible {
   border-top: 1px solid var(--color-border);
 }
 
-/* Landing page: footer follows the dark band, so no divider. */
-.site-footer--plain {
-  padding-bottom: 160px;
-}
-
-.site-footer--plain .site-footer__inner {
-  padding-top: 0;
-  border-top: 0;
+.site-footer--landing {
+  padding: 80px var(--landing-pad) 160px;
 }
 
 .site-footer__info {
@@ -591,14 +625,29 @@ a:focus-visible {
    Responsive
    ========================================================================== */
 @media (max-width: 1100px) {
-  .hero__title {
+  .hero__title,
+  .about__title {
     font-size: 56px;
     line-height: 68px;
   }
 
-  .hero__lead {
+  .hero__lead,
+  .about__lead {
     font-size: 20px;
-    line-height: 32px;
+    line-height: 30px;
+  }
+
+  .about {
+    padding-right: calc(400px + 24px);
+  }
+
+  .about__portrait {
+    width: 400px;
+  }
+
+  .principles {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
@@ -609,15 +658,18 @@ a:focus-visible {
 
   .hero {
     grid-template-columns: 1fr;
+    row-gap: 8px;
+    padding-bottom: 48px;
   }
 
   .hero__text {
-    padding-top: 8px;
+    padding-top: 0;
   }
 
   .work {
+    gap: 64px;
     padding-top: 48px;
-    padding-bottom: 48px;
+    padding-bottom: 80px;
   }
 
   .work-card,
@@ -626,26 +678,38 @@ a:focus-visible {
     grid-template-areas:
       "media"
       "body";
-    gap: 24px;
+    row-gap: 24px;
   }
 
-  .about,
+  .work-card__media,
+  .work-card--tall .work-card__media {
+    height: auto;
+    aspect-ratio: 784 / 520;
+  }
+
+  /* Stack the portrait under the text instead of beside it */
+  .about {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding: 64px var(--landing-pad) 0;
+  }
+
+  .about__portrait {
+    position: static;
+    align-self: flex-end;
+    width: min(400px, 100%);
+    margin-top: 32px;
+  }
+
   .resume,
-  .contact__inner {
+  .contact {
     grid-template-columns: 1fr;
     gap: 48px;
   }
 
-  .about__portrait {
-    max-width: 382px;
-  }
-
-  .resume {
-    padding-top: 0;
-  }
-
   .contact {
-    padding-bottom: 96px;
+    padding-top: 80px;
   }
 
   .contact__links {
@@ -662,7 +726,7 @@ a:focus-visible {
     width: 100%;
   }
 
-  .site-footer--plain {
+  .site-footer--landing {
     padding-bottom: 80px;
   }
 }
@@ -691,27 +755,37 @@ a:focus-visible {
     font-size: 16px;
   }
 
-  .hero__title {
+  .hero {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero__text {
+    padding: 0 var(--gutter);
+  }
+
+  .hero__title,
+  .about__title {
     font-size: 44px;
     line-height: 52px;
   }
 
-  .hero__lead {
+  .hero__lead,
+  .about__lead {
     margin-top: 20px;
     font-size: 18px;
     line-height: 28px;
   }
 
   .work-card__title,
-  .about__name,
   .contact__title {
     font-size: 36px;
     line-height: 44px;
   }
 
   .work-card__subtitle {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 20px;
+    line-height: 28px;
   }
 
   .work-card .tags,
@@ -719,19 +793,14 @@ a:focus-visible {
     margin-top: 24px;
   }
 
-  .about,
+  .about {
+    padding-top: 48px;
+  }
+
+  .principles-band,
   .resume {
     padding-top: 48px;
     padding-bottom: 48px;
-  }
-
-  .resume {
-    padding-top: 0;
-  }
-
-  .about__lead {
-    font-size: 20px;
-    line-height: 32px;
   }
 
   .resume__heading {
@@ -741,16 +810,12 @@ a:focus-visible {
 
   .entry__title {
     font-size: 20px;
-    line-height: 26px;
+    line-height: 28px;
   }
 
   .contact {
-    padding-top: 48px;
-    padding-bottom: 64px;
-  }
-
-  .contact__inner {
-    padding-top: 48px;
+    padding-top: 64px;
+    padding-bottom: 48px;
   }
 
   .contact__link {
@@ -766,7 +831,7 @@ a:focus-visible {
     padding-top: 48px;
   }
 
-  .site-footer--plain {
+  .site-footer--landing {
     padding-bottom: 64px;
   }
 }
@@ -823,6 +888,18 @@ a:focus-visible {
 
 .project-meta dd span {
   display: block;
+}
+
+/* Quiet aside, e.g. a confidentiality note under the project details */
+.project-note {
+  margin-top: 32px;
+  padding: 16px 20px;
+  border-left: 4px solid var(--color-text);
+  background: #f2f2f2;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--muted);
 }
 
 .project-hero {

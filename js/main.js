@@ -51,6 +51,9 @@ function initSlideshow(root) {
 }
 
 // Muted, looping videos marked [data-inview-autoplay] play only while on screen.
+// A video starts from the beginning once most of it has scrolled into view, and
+// only one plays at a time, so stacked videos play one after another as you
+// scroll instead of all at once.
 // They ship with `controls` and preload="none", so without JS (or with reduced
 // motion) they stay as ordinary click-to-play videos and don't download up front.
 function initInViewVideos(videos) {
@@ -61,13 +64,17 @@ function initInViewVideos(videos) {
     (entries) => {
       entries.forEach(({ target, isIntersecting }) => {
         if (isIntersecting) {
+          videos.forEach((other) => {
+            if (other !== target) other.pause();
+          });
+          target.currentTime = 0;
           target.play().catch(() => {});
         } else {
           target.pause();
         }
       });
     },
-    { rootMargin: "200px 0px", threshold: 0.25 }
+    { threshold: 0.6 }
   );
 
   const apply = () => {
