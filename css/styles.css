@@ -250,7 +250,9 @@ a:focus-visible {
 /* Hero ------------------------------------------------------------------- */
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 650px) minmax(0, 1fr);
+  /* The image is 650px wide on large screens but never takes more than half
+     the row, so the text column can't be squeezed narrower than the heading. */
+  grid-template-columns: min(650px, 50%) minmax(0, 1fr);
   /* 32px at 1440px wide, growing to 64px at 1920px */
   column-gap: clamp(32px, calc(100vw / 15 - 64px), 64px);
   padding: 0 var(--landing-pad);
@@ -259,6 +261,10 @@ a:focus-visible {
 
 .hero__media {
   position: relative;
+  /* Keeps the photo's proportions as a minimum, but stretches to the band's
+     height when the text beside it is taller (the slides crop to fit). */
+  align-self: stretch;
+  width: 100%;
   aspect-ratio: 591 / 574;
   overflow: hidden;
   background: var(--color-media-bg);
@@ -294,13 +300,18 @@ a:focus-visible {
 }
 
 .hero__text {
-  padding-top: 40px;
+  /* Lets the heading size itself to this column (cqi units below) */
+  container-type: inline-size;
+  padding: 40px 0;
 }
 
+/* Fluid size tied to the text column's width: "Systematic", the longest
+   line, is ~5.3em wide in Inter Medium, so 18.5cqi always fits.
+   72px max, 40px min. */
 .hero__title {
-  font-size: 72px;
+  font-size: clamp(2.5rem, 18.5cqi, 4.5rem);
   font-weight: 500;
-  line-height: 88px;
+  line-height: 1.22;
   color: var(--color-text);
 }
 
@@ -310,10 +321,11 @@ a:focus-visible {
 
 .hero__lead {
   max-width: 500px;
-  margin-top: 32px;
-  font-size: 23px;
+  margin-top: clamp(1.25rem, 0.9rem + 1.5vw, 2rem);
+  padding-bottom: 32px;
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.4375rem);
   font-weight: 300;
-  line-height: 32px;
+  line-height: 1.4;
   color: var(--color-text);
 }
 
@@ -504,7 +516,8 @@ a:focus-visible {
 /* Contact ---------------------------------------------------------------- */
 .contact {
   display: grid;
-  grid-template-columns: minmax(0, 640px) minmax(0, 1fr);
+  /* The links column keeps at least 16rem; the title column gives way first */
+  grid-template-columns: minmax(0, 640px) minmax(min(100%, 16rem), 1fr);
   gap: 64px;
   padding: 112px var(--landing-pad) 80px;
 }
@@ -625,13 +638,11 @@ a:focus-visible {
    Responsive
    ========================================================================== */
 @media (max-width: 1100px) {
-  .hero__title,
   .about__title {
     font-size: 56px;
     line-height: 68px;
   }
 
-  .hero__lead,
   .about__lead {
     font-size: 20px;
     line-height: 30px;
@@ -651,6 +662,16 @@ a:focus-visible {
   }
 }
 
+/* 901–1100px: the portrait is smaller here, so fit the section to it
+   (32px above the image) instead of leaving a tall empty band. */
+@media (min-width: 901px) and (max-width: 1100px) {
+  .about {
+    min-height: calc(400px * 1036 / 1084 + 32px);
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
 @media (max-width: 900px) {
   :root {
     --gutter: 32px;
@@ -658,12 +679,14 @@ a:focus-visible {
 
   .hero {
     grid-template-columns: 1fr;
-    row-gap: 8px;
-    padding-bottom: 48px;
+    row-gap: 32px;
+    /* The intro text already has 32px below it, so ~48px in total */
+    padding-bottom: 16px;
   }
 
   .hero__text {
     padding-top: 0;
+    padding-bottom: 0;
   }
 
   .work {
@@ -764,13 +787,11 @@ a:focus-visible {
     padding: 0 var(--gutter);
   }
 
-  .hero__title,
   .about__title {
     font-size: 44px;
     line-height: 52px;
   }
 
-  .hero__lead,
   .about__lead {
     margin-top: 20px;
     font-size: 18px;
